@@ -18,11 +18,13 @@ const digits = document.querySelectorAll('.digit');
 const operator = document.querySelectorAll('.operator');
 const equals = document.querySelector('.equals');
 const clear = document.querySelector('.clear');
+const decimal = document.querySelector('.decimal');
 
 let firstNum = '';
 let secondNum = '';
 let initOperator = '';
 let conseqOperator = '';
+let isDecimal = false;
 
 digits.forEach((button) => {
     button.addEventListener('click', function(event) {        
@@ -38,9 +40,11 @@ digits.forEach((button) => {
 });
 
 operator.forEach((button) => {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function() {
         if (!initOperator) {
             initOperator = button.textContent;
+            isDecimal = false;
+
         }
         else {
             conseqOperator = button.textContent;
@@ -51,6 +55,7 @@ operator.forEach((button) => {
             firstNum = result;
             secondNum = '';
             initOperator = conseqOperator;
+            isDecimal = false;
         }
     });
 });
@@ -66,12 +71,14 @@ equals.addEventListener('click', function() {
                 firstNum = '';
                 secondNum = ''; 
                 conseqOperator = '';
+                isDecimal = false;
             }
             else {
                 display.textContent = result;
                 firstNum = result;
                 secondNum = '';
                 initOperator = '';
+                isDecimal = false;
         }
     }
 });
@@ -82,4 +89,18 @@ clear.addEventListener('click', function() {
     firstNum = '';
     secondNum = ''; 
     conseqOperator = '';
+});
+
+
+decimal.addEventListener('click', function() {
+    if (!initOperator && !isDecimal) {
+        firstNum += decimal.textContent;
+        display.textContent = firstNum;
+    }
+    else if (initOperator && !isDecimal) {
+        secondNum += decimal.textContent;
+        display.textContent = secondNum;
+    }
+
+    isDecimal = true;
 });
