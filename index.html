@@ -4,27 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
 </head>
 <body>
-    <div class="display"></div>
-    <button class="digit">1</button>
-    <button class="digit">2</button>
-    <button class="digit">3</button>
-    <button class="digit">4</button>
-    <button class="digit">5</button>
-    <button class="digit">6</button>
-    <button class="digit">7</button>
-    <button class="digit">8</button>
-    <button class="digit">9</button>
-    <button class="digit">0</button>
-    <button class="decimal">.</button>
-    <button class="operator">+</button>
-    <button class="operator">-</button>
-    <button class="operator">*</button>
-    <button class="operator">/</button>
-    <button class="equals">=</button>
-    <button class="clear">clear</button>
+    <div class=container>
+        <div class="display"></div>
+        <div class="buttons">
+            <div class=first-row>
+                <button class="digit">1</button>
+                <button class="digit">2</button>
+                <button class="digit">3</button>
+                <button class="operator">+</button>
+            </div>
+    
+            <div class="second-row">
+                <button class="digit">4</button>
+                <button class="digit">5</button>
+                <button class="digit">6</button>
+                <button class="operator">-</button>
+            </div>
+    
+            <div class="third-row">
+                <button class="digit">7</button>
+                <button class="digit">8</button>
+                <button class="digit">9</button>
+                <button class="operator">*</button>
+            </div>
+    
+            <div class="fourth-row">
+                <button class="decimal">.</button>
+                <button class="digit">0</button>
+                <button class="equals">=</button>
+                <button class="operator">/</button>
+            </div>
+        </div>
+        
+        <button class="clear">clear</button>
+
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
