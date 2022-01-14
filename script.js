@@ -46,7 +46,7 @@ operator.forEach((button) => {
             conseqOperator = button.textContent;
             let result = operate(initOperator,
                 parseFloat(firstNum),
-                parseFloat(secondNum));
+                parseFloat(secondNum)).toFixed(2);
             display.textContent = result;
             firstNum = result;
             secondNum = '';
@@ -56,12 +56,24 @@ operator.forEach((button) => {
 });
 
 equals.addEventListener('click', function() {
-    let result = operate(initOperator,
-        parseFloat(firstNum),
-        parseFloat(secondNum));
-    display.textContent = result;
-    firstNum = result;
-    secondNum = '';
+     if (firstNum && secondNum && initOperator) {
+        let result = operate(initOperator,
+            parseFloat(firstNum),
+            parseFloat(secondNum)).toFixed(2);
+            if (result === "Infinity") {
+                display.textContent = "Cannot divide by 0";
+                initOperator = '';
+                firstNum = '';
+                secondNum = ''; 
+                conseqOperator = '';
+            }
+            else {
+                display.textContent = result;
+                firstNum = result;
+                secondNum = '';
+                initOperator = '';
+        }
+    }
 });
 
 clear.addEventListener('click', function() {
