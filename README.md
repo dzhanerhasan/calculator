@@ -1,2 +1,1 @@
-My first JS project.
-https://dzhanerhasan.github.io/calculator/
+My first JS project. - https://dzhanerhasan.github.io/calculator/
